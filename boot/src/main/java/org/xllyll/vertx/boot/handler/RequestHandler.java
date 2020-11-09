@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import io.vertx.core.Handler;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import org.xllyll.vertx.boot.annotation.RequestBody;
@@ -147,13 +148,10 @@ public class RequestHandler implements Handler<RoutingContext> {
   //处理JSON请求数据
   private void buildBodyValue(RoutingContext context,Method method,Object objc,Object[] parameters,int index,Class<?> aClass){
 
-    context.request().bodyHandler(body->{
+    String body = context.getBodyAsString();
 
-      String jsonStr = body.toJsonObject().toString();
-      Object value = JSON.parseObject(jsonStr,aClass);
-      buildParameters(context,method,objc,parameters,index,value);
-
-    });
+    Object value = JSON.parseObject(body,aClass);
+    buildParameters(context,method,objc,parameters,index,value);
 
   }
 

@@ -8,6 +8,7 @@ import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
+import io.vertx.ext.web.handler.BodyHandler;
 import org.xllyll.vertx.boot.handler.RequestHandler;
 import org.xllyll.vertx.boot.router.RouterModel;
 import org.xllyll.vertx.boot.utils.BootYmlUtils;
@@ -31,7 +32,7 @@ public class MainVerticle extends AbstractVerticle {
     // 实例化一个路由器出来，用来路由不同的rest接口
     Router router = Router.router(vertx);
     // 增加一个处理器，将请求的上下文信息，放到RoutingContext中
-    // router.route().handler(BodyHandler.create());
+    router.route().handler(BodyHandler.create());
 
     if (PackageScannerCore.routerModels.values()!=null){
       for (RouterModel routerModel:PackageScannerCore.routerModels.values()){
