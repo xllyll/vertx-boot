@@ -2,11 +2,8 @@ package org.xllyll.vertx.boot.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import io.vertx.core.Handler;
-import io.vertx.core.buffer.Buffer;
-import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.FileUpload;
 import io.vertx.ext.web.RoutingContext;
 import org.xllyll.vertx.boot.annotation.RequestBody;
 import org.xllyll.vertx.boot.router.ParameterModel;
@@ -20,7 +17,7 @@ import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
 public class RequestHandler implements Handler<RoutingContext> {
@@ -58,7 +55,8 @@ public class RequestHandler implements Handler<RoutingContext> {
       for (int i = 0; i < parameterModels.length;i++){
         ParameterModel parameterModel = parameterModels[i];
         Class<?> aClass = parameterModel.getType();
-        String param = context.request().getParam(parameterModels[i].getName());
+        String paramName = parameterModels[i].getName();
+        String param = context.request().getParam(paramName);
         if(aClass.isPrimitive()){
           //基础数据类型：int ,float,double,long,boolean
           buildPrimitiveValue(context,method,objc1,param,parameters,i,aClass);
@@ -88,6 +86,19 @@ public class RequestHandler implements Handler<RoutingContext> {
           //TODO: MARK: 数组处理
 //          parameters[i] = new List<>(param) {};
 //          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(FileUpload.class)){
+          //TODO: MARK: 文件处理
+          Set<FileUpload> fileUploads = context.fileUploads();
+          Object value = null;
+          if (fileUploads!=null||fileUploads.size()>0){
+            for (FileUpload fileUpload:fileUploads){
+              if (fileUpload.name().equals(paramName)){
+                value = fileUpload;
+                break;
+              }
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
         }else {
           //其他数据类型
           RequestBody requestBody = parameterModel.getParameter().getAnnotation(RequestBody.class);
@@ -198,8 +209,9 @@ public class RequestHandler implements Handler<RoutingContext> {
     }
     contextIntegerHashMap.remove(context);
     // 申明response类型为json格式，结束response并且输出json字符串
-    context.response().putHeader("content-type", "application/json")
-      .end(responseString);
+    context.response()
+           .putHeader("content-type", "application/json")
+           .end(responseString);
   }
 
 }
