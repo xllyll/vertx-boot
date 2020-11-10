@@ -3,6 +3,7 @@ package org.xllyll.vertx.boot.handler;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import io.vertx.core.Handler;
+import io.vertx.core.MultiMap;
 import io.vertx.ext.web.FileUpload;
 import io.vertx.ext.web.RoutingContext;
 import org.xllyll.vertx.boot.annotation.RequestBody;
@@ -10,6 +11,7 @@ import org.xllyll.vertx.boot.router.ParameterModel;
 import org.xllyll.vertx.boot.router.RouterModel;
 import org.xllyll.vertx.boot.utils.PackageScannerCore;
 
+import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import java.lang.reflect.InvocationTargetException;
@@ -55,7 +57,7 @@ public class RequestHandler implements Handler<RoutingContext> {
       for (int i = 0; i < parameterModels.length;i++){
         ParameterModel parameterModel = parameterModels[i];
         Class<?> aClass = parameterModel.getType();
-        String paramName = parameterModels[i].getName();
+        String paramName = parameterModel.getName();
         String param = context.request().getParam(paramName);
         if(aClass.isPrimitive()){
           //基础数据类型：int ,float,double,long,boolean
@@ -84,6 +86,9 @@ public class RequestHandler implements Handler<RoutingContext> {
           buildParameters(context,method,objc1,parameters,i,value);
         }else if (aClass.isAssignableFrom(List.class)){
           //TODO: MARK: 数组处理
+          System.out.println("数组处理");
+          //parameterModel.getParameter().getParameterizedType().
+          buildListValue(context,method,parameterModel,objc1,param,parameters,i,aClass);
 //          parameters[i] = new List<>(param) {};
 //          buildParameters(context,method,objc1,parameters,i,value);
         }else if (aClass.isAssignableFrom(FileUpload.class)){
@@ -155,6 +160,118 @@ public class RequestHandler implements Handler<RoutingContext> {
       boolean value = Boolean.valueOf(param).booleanValue();
       buildParameters(context,method,objc1,parameters,i,value);
     }
+  }
+
+  private void buildListValue(RoutingContext context,Method method,ParameterModel parameterModel,Object objc1,String param,Object[] parameters,int i,Class<?> mainClass){
+    String subClassName = parameterModel.getParameter().getParameterizedType().getTypeName();
+    String subClassNames[] = subClassName.split("<");
+    if (subClassNames!=null && subClassNames.length==2){
+      subClassName = subClassNames[1].replace(">","");
+    }
+    try {
+      Class aClass = Class.forName(subClassName);
+      if (aClass!=null){
+        if (aClass.isAssignableFrom(String.class)){
+          //字符串类型
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          buildParameters(context,method,objc1,parameters,i,strValue);
+        }else if (aClass.isAssignableFrom(Double.class)){
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          List<Double> value = null;
+          if (strValue!=null){
+            value = new ArrayList<>();
+            for (String v : strValue){
+              value.add(Double.valueOf(v));
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(Float.class)){
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          List<Float> value = null;
+          if (strValue!=null){
+            value = new ArrayList<>();
+            for (String v : strValue){
+              value.add(Float.valueOf(v));
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(Integer.class)){
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          List<Integer> value = null;
+          if (strValue!=null){
+            value = new ArrayList<>();
+            for (String v : strValue){
+              value.add(Integer.valueOf(v));
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(Long.class)){
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          List<Long> value = null;
+          if (strValue!=null){
+            value = new ArrayList<>();
+            for (String v : strValue){
+              value.add(Long.valueOf(v));
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(Boolean.class)){
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          List<Boolean> value = null;
+          if (strValue!=null){
+            value = new ArrayList<>();
+            for (String v : strValue){
+              value.add(Boolean.valueOf(v));
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(BigDecimal.class)){
+          List<String> strValue = getListValue(context,parameterModel.getName());
+          List<BigDecimal> value = null;
+          if (strValue!=null){
+            value = new ArrayList<>();
+            for (String v : strValue){
+              value.add(new BigDecimal(v));
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }else if (aClass.isAssignableFrom(FileUpload.class)){
+          Set<FileUpload> fileUploads = context.fileUploads();
+          List<FileUpload> value = null;
+          if (fileUploads!=null||fileUploads.size()>0){
+            value = new ArrayList<>();
+            for (FileUpload fileUpload:fileUploads){
+              if (fileUpload.name().equals(parameterModel.getName())){
+                value.add(fileUpload);
+              }
+            }
+          }
+          buildParameters(context,method,objc1,parameters,i,value);
+        }
+      }else{
+        buildParameters(context,method,objc1,parameters,i,null);
+      }
+
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+      buildParameters(context,method,objc1,parameters,i,null);
+    }
+  }
+  private List<String> getListValue(RoutingContext context,String paramName){
+    MultiMap params =  context.request().params();
+    if (params!=null){
+      List<Entry<String, String>> entries = params.entries();
+      if (entries!=null && entries.size()>0){
+        List<String> values = new ArrayList<>();
+        for (Entry<String, String> entry : entries){
+           if (entry.getKey().equals(paramName)){
+             values.add(entry.getValue());
+           }
+        }
+        return values;
+      }
+    }
+    return null;
   }
   //处理JSON请求数据
   private void buildBodyValue(RoutingContext context,Method method,Object objc,Object[] parameters,int index,Class<?> aClass){

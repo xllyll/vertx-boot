@@ -6,11 +6,19 @@ import org.xllyll.vertx.boot.annotation.RequestMethod;
 import org.xllyll.vertx.boot.annotation.RestApi;
 import org.xllyll.vertx.server.dto.BaseResponse;
 
+import java.util.List;
+
 @RestApi
 public class FileApi {
 
     @RequestMapping(path = "/file/upload",method = RequestMethod.POST)
     public BaseResponse uploadFile(FileUpload file,FileUpload image){
+        BaseResponse baseResponse = new BaseResponse();
+        return baseResponse;
+    }
+
+    @RequestMapping(path = "/file/uploads",method = RequestMethod.POST)
+    public BaseResponse uploadFiles(List<FileUpload> file){
         BaseResponse baseResponse = new BaseResponse();
         return baseResponse;
     }
