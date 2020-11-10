@@ -15,7 +15,7 @@
         <dependency>
             <groupId>org.xllyll.vertx</groupId>
             <artifactId>boot</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
     </dependencies>
 
