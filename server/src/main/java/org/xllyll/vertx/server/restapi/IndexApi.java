@@ -1,5 +1,6 @@
 package org.xllyll.vertx.server.restapi;
 
+import com.alibaba.fastjson.JSON;
 import org.xllyll.vertx.boot.annotation.RequestMapping;
 import org.xllyll.vertx.boot.annotation.RequestMethod;
 import org.xllyll.vertx.boot.annotation.RestApi;
@@ -20,9 +21,11 @@ public class IndexApi {
 
     @RequestMapping(path="/index",method = RequestMethod.GET)
     public BaseResponse index(UserDto userDto) {
+
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setMessage("操作成功");
         baseResponse.setData(userDto);
+
         return baseResponse;
     }
 
