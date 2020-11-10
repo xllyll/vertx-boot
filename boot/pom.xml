@@ -4,9 +4,33 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.xllyll.vertx</groupId>
+  <groupId>io.github.xllyll.vertx</groupId>
   <artifactId>boot</artifactId>
   <version>0.0.1</version>
+
+  <developers>
+    <developer>
+      <name>xllyll</name>
+      <email>757271398@qq.com</email>
+    </developer>
+  </developers>
+
+  <!-->项目的版本管理地址<-->
+  <scm>
+    <url>https://github.com/xllyll/vertx-boot</url>
+  </scm>
+
+  <!-->发布的地址<-->
+  <distributionManagement>
+    <repository>
+      <id>snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +43,7 @@
     <vertx.version>3.9.4</vertx.version>
     <junit-jupiter.version>5.4.0</junit-jupiter.version>
 
-    <main.verticle>org.xllyll.vertx.boot.verticle.MainVerticle</main.verticle>
+    <main.verticle>io.github.xllyll.vertx.boot.verticle.MainVerticle</main.verticle>
   </properties>
 
   <dependencyManagement>

@@ -1,6 +1,6 @@
 package org.xllyll.vertx.server;
 
-import org.xllyll.vertx.boot.VertxApplication;
+import io.github.xllyll.vertx.boot.VertxApplication;
 
 public class ServerApplication {
 

@@ -1,9 +1,9 @@
 package org.xllyll.vertx.server.restapi;
 
 import io.vertx.ext.web.FileUpload;
-import org.xllyll.vertx.boot.annotation.RequestMapping;
-import org.xllyll.vertx.boot.annotation.RequestMethod;
-import org.xllyll.vertx.boot.annotation.RestApi;
+import io.github.xllyll.vertx.boot.annotation.RequestMapping;
+import io.github.xllyll.vertx.boot.annotation.RequestMethod;
+import io.github.xllyll.vertx.boot.annotation.RestApi;
 import org.xllyll.vertx.server.dto.BaseResponse;
 
 import java.util.List;

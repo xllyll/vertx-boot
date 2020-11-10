@@ -1,11 +1,9 @@
 package org.xllyll.vertx.server.restapi;
 
-import org.xllyll.vertx.boot.annotation.RequestBody;
-import org.xllyll.vertx.boot.annotation.RequestMapping;
-import org.xllyll.vertx.boot.annotation.RequestMethod;
-import org.xllyll.vertx.boot.annotation.RestApi;
+import io.github.xllyll.vertx.boot.annotation.RequestMapping;
+import io.github.xllyll.vertx.boot.annotation.RequestMethod;
+import io.github.xllyll.vertx.boot.annotation.RestApi;
 import org.xllyll.vertx.server.dto.BaseResponse;
-import org.xllyll.vertx.server.dto.UserDto;
 
 import java.util.Date;
 import java.util.List;
