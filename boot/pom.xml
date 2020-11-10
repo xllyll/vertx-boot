@@ -51,12 +51,14 @@
       <artifactId>vertx-junit5</artifactId>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -76,24 +78,34 @@
       <artifactId>asm</artifactId>
       <version>3.3.1</version>
     </dependency>
+
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.2.73</version>
     </dependency>
+
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/**</include>
+          <include>**/*.*</include>
+        </includes>
+      </resource>
+    </resources>
     <plugins>
-
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <release>8</release>
+          <source>8</source>
+          <target>8</target>
         </configuration>
       </plugin>
-
     </plugins>
   </build>
 
