@@ -1,0 +1,17 @@
+io/github/xllyll/vertx/boot/utils/PackageScanner$1.class
+io/github/xllyll/vertx/boot/utils/BootYmlUtils.class
+io/github/xllyll/vertx/boot/router/RouterModel.class
+io/github/xllyll/vertx/boot/annotation/RequestMapping.class
+io/github/xllyll/vertx/boot/handler/RequestHandler.class
+io/github/xllyll/vertx/boot/annotation/RequestMethod.class
+io/github/xllyll/vertx/boot/verticle/MainVerticle.class
+io/github/xllyll/vertx/boot/annotation/RestApi.class
+io/github/xllyll/vertx/boot/utils/PackageScannerCore$2.class
+io/github/xllyll/vertx/boot/utils/PackageScanner.class
+io/github/xllyll/vertx/boot/VertxApplication.class
+io/github/xllyll/vertx/boot/verticle/MainVerticle$1.class
+io/github/xllyll/vertx/boot/utils/PackageScannerCore$2$1.class
+io/github/xllyll/vertx/boot/utils/PackageScannerCore$1.class
+io/github/xllyll/vertx/boot/annotation/RequestBody.class
+io/github/xllyll/vertx/boot/utils/PackageScannerCore.class
+io/github/xllyll/vertx/boot/router/ParameterModel.class
