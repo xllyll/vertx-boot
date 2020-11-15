@@ -6,12 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="vertx-boot" />
+        <module name="server" />
+        <module name="vertx-boot (1) (io.github.xllyll)" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="boot" target="8" />
-      <module name="server" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

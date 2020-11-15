@@ -127,7 +127,7 @@ public class RequestHandler implements Handler<RoutingContext> {
       }
 
     }else{
-      buildParameters(context,method,objc1,null,0,null);
+      buildParameters(context,method,objc1,parameters,0,null);
     }
 
   }
@@ -284,7 +284,9 @@ public class RequestHandler implements Handler<RoutingContext> {
   }
 
   private void buildParameters(RoutingContext context,Method method,Object objc,Object[] parameters,int index,Object value){
-    parameters[index] = value;
+    if (parameters!=null){
+      parameters[index] = value;
+    }
     Integer doIndex = contextIntegerHashMap.get(context);
     if (doIndex==null){
       doIndex=0;
@@ -292,7 +294,7 @@ public class RequestHandler implements Handler<RoutingContext> {
     doIndex++;
     contextIntegerHashMap.put(context,doIndex);
 
-    if (parameters.length==doIndex){
+    if (parameters == null || parameters.length==doIndex){
       Object responseObjc = null;
       try {
         if (parameters!=null && parameters.length>0){
