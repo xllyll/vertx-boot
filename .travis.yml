@@ -1,4 +1,6 @@
-language: ruby
-rvm:
- - 2.2
- - jruby
+dist: xenial
+language: java
+
+jdk:
+  - openjdk8
+  - openjdk11
