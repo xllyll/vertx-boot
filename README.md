@@ -67,3 +67,9 @@ public class IndexApi {
 
 }
 ```
+
+
+访问：http://127.0.0.1:8080/index
+返回：{"code":0,"message":"操作成功","data":"Hello Vertx Boot"}
+
+
