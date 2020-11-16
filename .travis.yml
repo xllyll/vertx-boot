@@ -1,13 +1,14 @@
 language: java
 
-sudo: false
-
-dist: precise
-
 jdk:
   - oraclejdk8
 
 cache:
   directories:
-  - .autoconf
-  - $HOME/.m2
+  - '$HOME/.m2/repository'
+
+#before_install:
+# - chmod +x gradlew
+
+script:
+  - mvn clean package -DskipTests=true
