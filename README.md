@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/xllyll/vertx-boot.svg?branch=master)](https://travis-ci.org/xllyll/vertx-boot)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/io.github.xllyll/vertx-boot/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.xllyll/vertx-boot)
 [![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-
+![License](https://img.shields.io/github/license/xllyll/vertx-boot.svg)
 # vertx-boot
 
 vert.x http 服务器框架
