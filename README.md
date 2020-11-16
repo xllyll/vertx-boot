@@ -13,7 +13,7 @@ maven
 <dependency>
   <groupId>io.github.xllyll</groupId>
   <artifactId>vertx-boot</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
@@ -32,4 +32,37 @@ public class ServerApplication {
 }
 
 
+```
+api
+
+```java
+@RestApi
+public class IndexApi {
+
+    @RequestMapping(path={"/index"},method = RequestMethod.GET)
+    public BaseResponse index() {
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setData("Hello Vertx Boot");
+        baseResponse.setMessage("操作成功");
+        return baseResponse;
+    }
+
+    @RequestMapping(path={"/index/name"},method = RequestMethod.GET)
+    public BaseResponse indexName(List<Integer> age) {
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setMessage("操作成功");
+        return baseResponse;
+    }
+
+    @RequestMapping(path="/index",method = RequestMethod.GET)
+    public BaseResponse index(UserDto userDto) {
+
+        BaseResponse baseResponse = new BaseResponse();
+        baseResponse.setMessage("操作成功");
+        baseResponse.setData(userDto);
+
+        return baseResponse;
+    }
+
+}
 ```
