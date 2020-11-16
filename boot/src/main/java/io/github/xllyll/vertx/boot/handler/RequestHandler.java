@@ -36,14 +36,13 @@ public class RequestHandler implements Handler<RoutingContext> {
 
     Class<?> clazz = routerModel.getmClass();
     Method method = routerModel.getHandle();
-    Class<?>[] parameterTypes = method.getParameterTypes();
+
     ParameterModel[] parameterModels = routerModel.getParameterModels();
     Object[] parameters = null;
     if (parameterModels!=null){
       parameters = new Object[parameterModels.length];
     }
 
-    Object responseObjc = null;
     Object objc1 = null;
     try {
       objc1 = clazz.newInstance();
@@ -86,11 +85,9 @@ public class RequestHandler implements Handler<RoutingContext> {
           buildParameters(context,method,objc1,parameters,i,value);
         }else if (aClass.isAssignableFrom(List.class)){
           //TODO: MARK: 数组处理
-          System.out.println("数组处理");
-          //parameterModel.getParameter().getParameterizedType().
+          System.out.println("==数组处理==");
           buildListValue(context,method,parameterModel,objc1,param,parameters,i,aClass);
-//          parameters[i] = new List<>(param) {};
-//          buildParameters(context,method,objc1,parameters,i,value);
+
         }else if (aClass.isAssignableFrom(FileUpload.class)){
           //TODO: MARK: 文件处理
           Set<FileUpload> fileUploads = context.fileUploads();
@@ -318,16 +315,17 @@ public class RequestHandler implements Handler<RoutingContext> {
    */
   private void invoke(RoutingContext context,Object responseObjc){
     String responseString = "";
-    if (responseObjc!=null) {
 
+    if (responseObjc!=null) {
       if (responseObjc instanceof String){
         responseString = (String) responseObjc;
       }else{
         responseString = JSONObject.toJSONString(responseObjc);
       }
     }
+
     contextIntegerHashMap.remove(context);
-    // 申明response类型为json格式，结束response并且输出json字符串
+
     context.response()
            .putHeader("content-type", "application/json")
            .end(responseString);
