@@ -1,6 +1,13 @@
-dist: xenial
 language: java
 
+sudo: false
+
+dist: precise
+
 jdk:
-  - openjdk8
-  - openjdk11
+  - oraclejdk8
+
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
