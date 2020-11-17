@@ -6,7 +6,7 @@
 
   <groupId>io.github.xllyll</groupId>
   <artifactId>vertx-boot</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <packaging>jar</packaging>
   <name>vertx-boot</name>
   <description>The test uploads the jar to the maven central repository</description>
@@ -20,11 +20,10 @@
     </developer>
   </developers>
 
-  <!-->项目的版本管理地址<-->
   <scm>
     <url>https://github.com/xllyll/vertx-boot</url>
   </scm>
-  <!-- 许可证信息 -->
+
   <licenses>
     <!-- MIT许可证 -->
     <license>
@@ -32,7 +31,7 @@
       <url>http://www.opensource.org/licenses/mit-license.php</url>
     </license>
   </licenses>
-  <!-->发布的地址<-->
+
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
@@ -55,6 +54,7 @@
 
     <vertx.version>3.9.4</vertx.version>
     <junit-jupiter.version>5.4.0</junit-jupiter.version>
+
   </properties>
 
   <dependencyManagement>
@@ -119,6 +119,7 @@
       <artifactId>fastjson</artifactId>
       <version>1.2.73</version>
     </dependency>
+
 
   </dependencies>
 

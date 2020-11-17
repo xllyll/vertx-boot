@@ -2,6 +2,7 @@ package io.github.xllyll.vertx.boot.router;
 
 import io.github.xllyll.vertx.boot.annotation.RequestMethod;
 
+
 import java.lang.reflect.Method;
 
 public class RouterModel {

@@ -15,7 +15,8 @@ public class BootYmlUtils {
 
   private static Map<String,Object> getBoot(){
     if (object==null){
-      File file = new File("src/main/resources/boot.yml");
+      String filePath = FileUtils.class.getClassLoader().getResource("boot.yml").getFile();
+      File file = new File(filePath);
       InputStream input = null;
       try {
         input = new FileInputStream(file);

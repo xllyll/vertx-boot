@@ -11,6 +11,7 @@ import io.github.xllyll.vertx.boot.router.RouterModel;
 import io.github.xllyll.vertx.boot.utils.BootYmlUtils;
 import io.github.xllyll.vertx.boot.utils.PackageScannerCore;
 
+
 public class MainVerticle extends AbstractVerticle {
 
   private Logger logger = LoggerFactory.getLogger(MainVerticle.class);
@@ -53,7 +54,7 @@ public class MainVerticle extends AbstractVerticle {
         logger.info("HTTP server started on port " + port);
       } else {
         startPromise.fail(http.cause());
-        logger.error(http.cause());
+        logger.error(String.valueOf(http.cause()));
       }
     });
 

@@ -1,5 +1,7 @@
 package io.github.xllyll.vertx.boot.utils;
 
+import io.vertx.core.logging.Logger;
+import io.vertx.core.logging.LoggerFactory;
 import org.objectweb.asm.*;
 
 import io.github.xllyll.vertx.boot.annotation.RequestMapping;
@@ -13,6 +15,8 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 
 public class PackageScannerCore {
+
+  private Logger logger = LoggerFactory.getLogger(PackageScannerCore.class);
 
   public static HashMap<String,RouterModel> routerModels = new HashMap<>();
 
@@ -38,13 +42,12 @@ public class PackageScannerCore {
 
   private void buildScan(){
     String mainPackStr = mainClass.getPackage().getName();
-    System.out.println("begin scan package:"+mainPackStr);
+    logger.info("begin scan package:"+mainPackStr);
     routerModels.clear();
     new PackageScanner(){
 
       @Override
       public void dealClass(Class<?> klass) {
-        System.out.println("====>"+klass.getName());
         Method methods[] = klass.getDeclaredMethods();
         if (methods!=null && methods.length>0){
           for (int i = 0 ; i < methods.length;i++){
@@ -59,8 +62,6 @@ public class PackageScannerCore {
                 if (requestMethods.length>1){
                   requestMethod = requestMethods[a];
                 }
-                System.out.println("method:"+requestMethod.name());
-                System.out.println("path:"+path);
                 RouterModel routerModel = new RouterModel();
                 routerModel.setPath(path);
                 routerModel.setRequestMethod(requestMethod);
@@ -78,6 +79,8 @@ public class PackageScannerCore {
         }
       }
     }.packageScan(mainPackStr);
+
+    logger.info("end scan package");
   }
 
   public static ParameterModel[] getParameterNamesByAsm5(Class<?> clazz,
