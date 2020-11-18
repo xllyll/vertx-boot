@@ -1,5 +1,6 @@
 package io.github.xllyll.vertx.boot.utils;
 
+import cn.hutool.core.io.resource.ResourceUtil;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -15,15 +16,7 @@ public class BootYmlUtils {
 
   private static Map<String,Object> getBoot(){
     if (object==null){
-      String filePath = FileUtils.class.getClassLoader().getResource("boot.yml").getFile();
-      File file = new File(filePath);
-      InputStream input = null;
-      try {
-        input = new FileInputStream(file);
-      } catch (FileNotFoundException e) {
-        e.printStackTrace();
-        return null;
-      }
+      String input = ResourceUtil.readUtf8Str("boot.yml");
       Yaml yaml = new Yaml();
       object = (Map<String, Object>) yaml.load(input);
     }

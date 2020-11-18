@@ -1,0 +1,9 @@
+org/xllyll/vertx/server/restapi/FileApi.class
+org/xllyll/vertx/server/restapi/IndexApi.class
+org/xllyll/vertx/server/ServerApplication.class
+org/xllyll/vertx/server/config/SwaggerConfig.class
+org/xllyll/vertx/server/dto/UserDto.class
+org/xllyll/vertx/server/utils/TestModel.class
+org/xllyll/vertx/server/restapi/TestApi.class
+org/xllyll/vertx/server/restapi/ListTestApi.class
+org/xllyll/vertx/server/dto/BaseResponse.class

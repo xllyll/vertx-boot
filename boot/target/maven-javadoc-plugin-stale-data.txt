@@ -1,0 +1,75 @@
+/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/../bin/javadoc
+@options
+@packages
+-classpath
+'/Users/longdoudou/.m2/repository/io/vertx/vertx-core/3.9.4/vertx-core-3.9.4.jar:/Users/longdoudou/.m2/repository/io/netty/netty-common/4.1.49.Final/netty-common-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-buffer/4.1.49.Final/netty-buffer-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-transport/4.1.49.Final/netty-transport-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-handler/4.1.49.Final/netty-handler-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-codec/4.1.49.Final/netty-codec-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-handler-proxy/4.1.49.Final/netty-handler-proxy-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-codec-socks/4.1.49.Final/netty-codec-socks-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-codec-http/4.1.49.Final/netty-codec-http-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-codec-http2/4.1.49.Final/netty-codec-http2-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-resolver/4.1.49.Final/netty-resolver-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-resolver-dns/4.1.49.Final/netty-resolver-dns-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/io/netty/netty-codec-dns/4.1.49.Final/netty-codec-dns-4.1.49.Final.jar:/Users/longdoudou/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.11.3/jackson-core-2.11.3.jar:/Users/longdoudou/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.11.3/jackson-databind-2.11.3.jar:/Users/longdoudou/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.3/jackson-annotations-2.11.3.jar:/Users/longdoudou/.m2/repository/io/vertx/vertx-web/3.9.4/vertx-web-3.9.4.jar:/Users/longdoudou/.m2/repository/io/vertx/vertx-web-common/3.9.4/vertx-web-common-3.9.4.jar:/Users/longdoudou/.m2/repository/io/vertx/vertx-auth-common/3.9.4/vertx-auth-common-3.9.4.jar:/Users/longdoudou/.m2/repository/io/vertx/vertx-bridge-common/3.9.4/vertx-bridge-common-3.9.4.jar:/Users/longdoudou/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar:/Users/longdoudou/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar:/Users/longdoudou/.m2/repository/com/alibaba/fastjson/1.2.73/fastjson-1.2.73.jar:/Users/longdoudou/.m2/repository/io/vertx/vertx-codegen/3.9.4/vertx-codegen-3.9.4.jar:/Users/longdoudou/.m2/repository/org/mvel/mvel2/2.3.1.Final/mvel2-2.3.1.Final.jar:/Users/longdoudou/.m2/repository/cn/hutool/hutool-all/5.4.1/hutool-all-5.4.1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/longdoudou/work/server/vertx-boot/boot/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2020. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'vertx-boot 0.0.4 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/Users/longdoudou/work/server/vertx-boot/boot/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'vertx-boot 0.0.4 API'
+io.github.xllyll.vertx.boot.handler
+io.github.xllyll.vertx.boot.listener
+io.github.xllyll.vertx.boot.core
+io.github.xllyll.vertx.boot
+io.github.xllyll.vertx.boot.annotation
+io.github.xllyll.vertx.boot.utils
+io.github.xllyll.vertx.boot.verticle
+io.github.xllyll.vertx.boot.router
+/Users/longdoudou/.m2/repository/io/vertx/vertx-core/3.9.4/vertx-core-3.9.4.jar = 1604722040000
+/Users/longdoudou/.m2/repository/io/netty/netty-common/4.1.49.Final/netty-common-4.1.49.Final.jar = 1604659561000
+/Users/longdoudou/.m2/repository/io/netty/netty-buffer/4.1.49.Final/netty-buffer-4.1.49.Final.jar = 1604659591000
+/Users/longdoudou/.m2/repository/io/netty/netty-transport/4.1.49.Final/netty-transport-4.1.49.Final.jar = 1604721835000
+/Users/longdoudou/.m2/repository/io/netty/netty-handler/4.1.49.Final/netty-handler-4.1.49.Final.jar = 1604659520000
+/Users/longdoudou/.m2/repository/io/netty/netty-codec/4.1.49.Final/netty-codec-4.1.49.Final.jar = 1604721743000
+/Users/longdoudou/.m2/repository/io/netty/netty-handler-proxy/4.1.49.Final/netty-handler-proxy-4.1.49.Final.jar = 1604659410000
+/Users/longdoudou/.m2/repository/io/netty/netty-codec-socks/4.1.49.Final/netty-codec-socks-4.1.49.Final.jar = 1604659432000
+/Users/longdoudou/.m2/repository/io/netty/netty-codec-http/4.1.49.Final/netty-codec-http-4.1.49.Final.jar = 1604659522000
+/Users/longdoudou/.m2/repository/io/netty/netty-codec-http2/4.1.49.Final/netty-codec-http2-4.1.49.Final.jar = 1604659479000
+/Users/longdoudou/.m2/repository/io/netty/netty-resolver/4.1.49.Final/netty-resolver-4.1.49.Final.jar = 1604659535000
+/Users/longdoudou/.m2/repository/io/netty/netty-resolver-dns/4.1.49.Final/netty-resolver-dns-4.1.49.Final.jar = 1604659526000
+/Users/longdoudou/.m2/repository/io/netty/netty-codec-dns/4.1.49.Final/netty-codec-dns-4.1.49.Final.jar = 1604659534000
+/Users/longdoudou/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.11.3/jackson-core-2.11.3.jar = 1604721957000
+/Users/longdoudou/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.11.3/jackson-databind-2.11.3.jar = 1604722012000
+/Users/longdoudou/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.3/jackson-annotations-2.11.3.jar = 1604721860000
+/Users/longdoudou/.m2/repository/io/vertx/vertx-web/3.9.4/vertx-web-3.9.4.jar = 1604731532000
+/Users/longdoudou/.m2/repository/io/vertx/vertx-web-common/3.9.4/vertx-web-common-3.9.4.jar = 1604731493000
+/Users/longdoudou/.m2/repository/io/vertx/vertx-auth-common/3.9.4/vertx-auth-common-3.9.4.jar = 1604731510000
+/Users/longdoudou/.m2/repository/io/vertx/vertx-bridge-common/3.9.4/vertx-bridge-common-3.9.4.jar = 1604731494000
+/Users/longdoudou/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar = 1603259264000
+/Users/longdoudou/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar = 1603956204000
+/Users/longdoudou/.m2/repository/com/alibaba/fastjson/1.2.73/fastjson-1.2.73.jar = 1604894469000
+/Users/longdoudou/.m2/repository/io/vertx/vertx-codegen/3.9.4/vertx-codegen-3.9.4.jar = 1604721964000
+/Users/longdoudou/.m2/repository/org/mvel/mvel2/2.3.1.Final/mvel2-2.3.1.Final.jar = 1604659404000
+/Users/longdoudou/.m2/repository/cn/hutool/hutool-all/5.4.1/hutool-all-5.4.1.jar = 1605666845000
+/Users/longdoudou/work/server/vertx-boot/boot/src/main/java = 1604993796000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/constant-values.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/overview-tree.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/index.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/overview-frame.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/allclasses-noframe.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/index-all.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/deprecated-list.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/script.js = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/stylesheet.css = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/overview-summary.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/help-doc.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/allclasses-frame.html = 1605672291000
+/Users/longdoudou/work/server/vertx-boot/boot/target/apidocs/package-list = 1605672291000

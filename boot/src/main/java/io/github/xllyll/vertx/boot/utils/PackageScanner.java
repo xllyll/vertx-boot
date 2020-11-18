@@ -63,18 +63,20 @@ public abstract class PackageScanner {
         continue;
       }
       String className = jarName.replace(".class", "").replaceAll("/", ".");
-
-      try {
-        Class<?> klass = Class.forName(className);
-        if (klass.isAnnotation()
-          || klass.isInterface()
-          || klass.isEnum()
-          || klass.isPrimitive()) {
-          continue;
+      if (className!=null){
+        System.out.println("ClassName:"+className);
+        try {
+          Class<?> klass = Class.forName(className);
+          if (klass.isAnnotation()
+                  || klass.isInterface()
+                  || klass.isEnum()
+                  || klass.isPrimitive()) {
+            continue;
+          }
+          dealClass(klass);
+        } catch (ClassNotFoundException e) {
+          e.printStackTrace();
         }
-        dealClass(klass);
-      } catch (ClassNotFoundException e) {
-        e.printStackTrace();
       }
     }
   }

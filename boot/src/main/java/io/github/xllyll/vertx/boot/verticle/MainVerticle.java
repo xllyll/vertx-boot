@@ -1,5 +1,6 @@
 package io.github.xllyll.vertx.boot.verticle;
 
+import io.github.xllyll.vertx.boot.core.VertxBootCore;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 import io.vertx.core.logging.Logger;
@@ -20,7 +21,6 @@ public class MainVerticle extends AbstractVerticle {
   public void start(Promise<Void> startPromise) throws Exception {
 
     Integer port = BootYmlUtils.serverPort();
-
 
     // 实例化一个路由器出来，用来路由不同的rest接口
     Router router = Router.router(vertx);
@@ -52,6 +52,7 @@ public class MainVerticle extends AbstractVerticle {
       if (http.succeeded()) {
         startPromise.complete();
         logger.info("HTTP server started on port " + port);
+        VertxBootCore.getInstance().applicationFinish();
       } else {
         startPromise.fail(http.cause());
         logger.error(String.valueOf(http.cause()));

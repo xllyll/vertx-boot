@@ -12,11 +12,14 @@
     <artifactId>server</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>io.github.xllyll</groupId>
             <artifactId>vertx-boot</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.4</version>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -29,31 +32,54 @@
             </resource>
         </resources>
         <plugins>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>8</source>-->
+<!--                    <target>8</target>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-shade-plugin</artifactId>-->
+<!--                <version>3.2.4</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>shade</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <transformers>-->
+<!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                    <mainClass>org.xllyll.vertx.server.ServerApplication</mainClass>-->
+<!--                                </transformer>-->
+<!--                            </transformers>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>io.github.xllyll</groupId>
+                <artifactId>vertx-boot-maven-plugin</artifactId>
+                <version>0.0.4</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <msg>This is my message </msg>
+                    <options>
+                        <option>one Array </option>
+                        <option>two Array </option>
+                    </options>
+
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <phase>package </phase>
                         <goals>
-                            <goal>shade</goal>
+                            <goal>sogoucloud </goal>
                         </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>org.xllyll.vertx.server.ServerApplication</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

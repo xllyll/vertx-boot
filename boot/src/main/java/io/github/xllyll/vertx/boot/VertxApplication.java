@@ -1,5 +1,6 @@
 package io.github.xllyll.vertx.boot;
 
+import io.github.xllyll.vertx.boot.core.VertxBootCore;
 import io.github.xllyll.vertx.boot.utils.FileUtils;
 import io.vertx.core.Vertx;
 import io.github.xllyll.vertx.boot.utils.PackageScannerCore;
@@ -10,7 +11,7 @@ public class VertxApplication {
   public static void run(Class aClass){
 
     FileUtils.readBanner();
-
+    VertxBootCore.getInstance().init(aClass);
     PackageScannerCore.getInstance().init(aClass);
 
     Vertx vertx = Vertx.vertx();

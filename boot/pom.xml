@@ -6,7 +6,7 @@
 
   <groupId>io.github.xllyll</groupId>
   <artifactId>vertx-boot</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <packaging>jar</packaging>
   <name>vertx-boot</name>
   <description>The test uploads the jar to the maven central repository</description>
@@ -118,6 +118,18 @@
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
       <version>1.2.73</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-codegen</artifactId>
+      <version>3.9.4</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>5.4.1</version>
     </dependency>
 
 

@@ -1,0 +1,8 @@
+io.github.xllyll.vertx.boot
+io.github.xllyll.vertx.boot.annotation
+io.github.xllyll.vertx.boot.core
+io.github.xllyll.vertx.boot.handler
+io.github.xllyll.vertx.boot.listener
+io.github.xllyll.vertx.boot.router
+io.github.xllyll.vertx.boot.utils
+io.github.xllyll.vertx.boot.verticle
